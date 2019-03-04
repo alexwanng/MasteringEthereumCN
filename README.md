@@ -1,28 +1,40 @@
-# Mastering Ethereum
+# Mastering Ethereum 精通以太坊中文版翻译
 
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/ethereumbook/Lobby)
-<!---[![Waffle.io - Columns and their card count](https://badge.waffle.io/ethereumbook/ethereumbook.svg?columns=all)](https://waffle.io/ethereumbook/ethereumbook)
---->
-![Mastering Ethereum Cover](images/cover_thumb.png)
 
-Mastering Ethereum is a book for developers, offering a guide to the operation and use of the Ethereum, Ethereum Classic, RootStock (RSK) and other compatible EVM-based open blockchains.
+## 引子
+在学习以太坊过程中， 最后觉得以太坊白皮书、黄皮书、以及这本精通以太坊比较经典， 黄皮书公式概念比较集中， 这本精通以太坊则是循序渐进， 有朋友说还没有中文版， 便有意组织一下翻译， 大家可以选择自己想翻译的章节。
 
-## Reading this book
+## 章节分配
 
-To read this book, open [book.asciidoc](https://github.com/ethereumbook/ethereumbook/tree/develop/book.asciidoc) and click on each chapter.
 
-## PDF Version
+| 章节                                                         | 翻译人   | 进度 |
+| ------------------------------------------------------------ | -------- | ---- |
+| [preface.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/preface.asciidoc) |          |      |
+| [glossary.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/glossary.asciidoc) |          |      |
+| [01what-is.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/01what-is.asciidoc) | 红军大叔 |      |
+| [02intro.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/02intro.asciidoc) | 红军大叔 |      |
+| [03clients.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/03clients.asciidoc) | 红军大叔 |      |
+| [04keys-addresses.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/04keys-addresses.asciidoc) | 红军大叔 |      |
+| [05wallets.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/05wallets.asciidoc) |          |      |
+| [06transactions.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/06transactions.asciidoc) |          |      |
+| [07smart-contracts-solidity.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/07smart-contracts-solidity.asciidoc) |          |      |
+| [08smart-contracts-vyper.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/08smart-contracts-vyper.asciidoc) |          |      |
+| [09smart-contracts-security.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/09smart-contracts-security.asciidoc) |          |      |
+| [10tokens.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/10tokens.asciidoc) |          |      |
+| [11oracles.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/11oracles.asciidoc) |          |      |
+| [12dapps.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/12dapps.asciidoc) |          |      |
+| [13evm.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/13evm.asciidoc) |          |      |
+| [14consensus.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/14consensus.asciidoc) |          |      |
+| [appdx-forks-history.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/appdx-forks-history.asciidoc) |          |      |
+| [appdx-standards-eip-erc.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/appdx-standards-eip-erc.asciidoc) |          |      |
+| [appdx-evm-opcodes-gas.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/appdx-evm-opcodes-gas.asciidoc) |          |      |
 
-There is no PDF version available. While it is possible to produce one, and you may do so for personal use, please **DO NOT** publish a PDF. The publishers and the authors provide a very generous open license that allows anyone to read this book for free on GitHub. It is not convenient to read that way, but it is free. Convenience, in the form of a nicely packaged PDF, ebook or printed book, is what the publishers charge money for and what pays for the publishers and authors work. Just like buying bottled water instead of drinking from the tap, buying a printed copy, PDF or ebook pays for the packaging. If you publish a PDF copy, you are violating the license, as a PDF is a derivative form and the -ND part of the license means "no derivatives". Doing so makes publishers less likely to publish with open licenses.
+## 翻译说明
+请fork本repository， 然后修改你选择的某个asciidoc文件， 提交pullrequest即可。
 
-## Content
 
-The content status is "COMPLETE". The first edition of this book was published on December 1st, 2018. That edition is available in print and ebook format at many popular bookstores. It is tagged ["first_edition_first_print"](https://github.com/ethereumbook/ethereumbook/tree/first_edition_first_print) in the develop branch of this repository.
-
-At this time, **only bug fix requests are accepted**. If you find a bug, start an issue or better yet, fix the problem with a pull request. We will start work on the second edition in late 2019.
 
 ## Source and license
-
 The [first edition](https://github.com/ethereumbook/ethereumbook/tree/first_edition_first_print) of this book, as printed and sold by O'Reilly Media, is available in this repository.
 
 Mastering Ethereum is released under the Creative Commons CC-BY-NC-ND license, which allows sharing the source code for personal use only. You may read this book for free. You may not create derivatives (such as PDF copies), or distribute the book commercially. The full terms of the license can be found here:
