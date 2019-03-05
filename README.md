@@ -30,8 +30,7 @@
 | [appdx-evm-opcodes-gas.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/appdx-evm-opcodes-gas.asciidoc) |          |      |
 
 ## 翻译说明
-请fork本repository， 然后修改你选择的某个asciidoc文件， 提交pullrequest即可。
-
+fork本repository， 然后修改你选择的某个asciidoc文件， 提交pullrequest即可。
 
 
 ## Source and license
