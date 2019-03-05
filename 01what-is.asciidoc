@@ -1,258 +1,259 @@
 [role="pagenumrestart"]
 [[whatis_chapter]]
-== What Is Ethereum?
+== 什么是以太坊?
 
-((("Ethereum (generally)","about", id="ix_01what-is-asciidoc0", range="startofrange")))Ethereum ((("world computer, Ethereum as")))is often described as "the world computer.&#x201d; But what does that mean? Let's start with a computer science–focused description, and then try to decipher that with a more practical analysis of Ethereum's capabilities and characteristics, while comparing it to Bitcoin and other decentralized information exchange platforms (or "blockchains" for short).
+((("Ethereum (generally)","about", id="ix_01what-is-asciidoc0", range="startofrange")))以太坊 ((("world computer, Ethereum as")))经常被描述为 "世界计算机.&#x201d; 这代表什么意思呢? 让我们从一个以计算机科学为中心的描述开始，然后尝试通过对以太坊的功能和特性进行更实际的分析来解释这一点，同时将其与比特币和其他去中心化信息交换平台(简称“区块链”)进行比较。
 
-From a computer science perspective, Ethereum is a deterministic but practically unbounded state machine, consisting of a globally accessible singleton state and a virtual machine that applies changes to that state.
+从计算机科学的角度来看，以太坊是一种确定性的但实际上是无限的状态机，它由一个全局可访问的单子状态和一个对该状态应用实施更改的虚拟机组成。
 
-From a more practical perspective, Ethereum is an open source, globally decentralized computing infrastructure that executes programs called _smart contracts_. It uses a blockchain to synchronize and store the system’s state changes, along with a cryptocurrency called _ether_ to meter and constrain execution resource costs.
+从更实际的角度来看，以太坊是一种开放源代码的、全球去中心化的计算基础设施，它执行称为_智能合约_的程序。它使用区块链来同步和存储系统的状态更改，并使用名为_ether(以太)_ 的加密货币来测量和限制执行资源成本。
 
-The Ethereum platform enables developers to build powerful decentralized applications with built-in economic functions. While providing high availability, auditability, transparency, and neutrality, it also reduces or eliminates censorship and reduces certain counterparty risks.
+以太坊平台使开发人员能够构建具有内置经济功能的功能强大的去中心化应用程序。在提供高可用性、可审计性、透明度和中立性的同时，它还减少或消除了审查制度，并降低了某些交易对手的风险。
 
 [[bitcoin_comparison]]
-=== Compared to Bitcoin
+=== 和比特币的对比
 
-((("Bitcoin","Ethereum compared to")))((("Ethereum (generally)","Bitcoin compared to")))Many people will come to Ethereum with some prior experience of cryptocurrencies, specifically Bitcoin. Ethereum shares many common elements with other open blockchains: a peer-to-peer network connecting participants, a Byzantine fault&#x2013;tolerant consensus algorithm for synchronization of state updates (a proof-of-work blockchain), the use of cryptographic primitives such as digital signatures and hashes, and a digital currency (ether).
+许多人在接触以太坊之前，已经拥有一些加密货币经验，特别是比特币。以太坊与其他开放块链有许多共同之处：连接各个参与者的对等网络、用于同步状态更新的拜占庭容错协商一致算法(一种工作量证明的区块链)、使用加密原语(如数字签名和哈希)以及数字货币(以太)。
 
-Yet in many ways, both the purpose and construction of Ethereum are strikingly different from those of the open blockchains that preceded it, including Bitcoin.
+然而，在许多方面，以太坊的目的和结构都与之前的开放区块链(包括比特币)有着惊人的不同。
 
-((("Ethereum (generally)","purpose of")))Ethereum's purpose is not primarily to be a digital currency payment network. ((("utility currency, ether as")))While the digital currency ether is both integral to and necessary for the operation of Ethereum, ether is intended as a _utility currency_ to pay for use of the Ethereum platform as the world computer.
+以太坊的主要目的不是为了成为一个数字货币支付网络。虽然数字货币ether(以太)既是以太网运作的组成部分，也是其运作所必需的，((("utility currency, ether as")))但以太是为了支付使用以太坊平台作为世界计算机的一种实用货币。
 
-Unlike Bitcoin, which has a very limited scripting language, Ethereum is designed to be a general-purpose programmable blockchain that runs a _virtual machine_ capable of executing code of arbitrary and unbounded complexity. Where Bitcoin's Script language is, intentionally, constrained to simple true/false evaluation of spending conditions, Ethereum's language is _Turing complete_, meaning that Ethereum can straightforwardly function as a general-purpose computer.
+比特币的脚本语言非常有限，与比特币不同的是，以太坊被设计为一个通用的可编程区块链，运行能够执行任意且无限复杂程度的代码的_虚拟机_。在比特币的脚本语言被有意限制为对支出条件进行简单的真/假评估，以太坊的语言是_图灵完备的_，这意味着以太坊可以直接作为一台通用计算机发挥作用。
 
 [[blockchain_components]]
-=== Components of a Blockchain
+=== 区块链的组件
 
-((("blockchain","components of")))((("Ethereum (generally)","blockchain components")))The components of an open, public blockchain are (usually):
+((("blockchain","components of")))((("Ethereum (generally)","blockchain components")))一般来说， 一个开放、公开的区块链的组件包含:
 
-* A peer-to-peer (P2P) network connecting participants and propagating transactions and blocks of verified transactions, based on a standardized "gossip" pass:[<span class="keep-together">protocol</span>]
-* Messages, in the form of transactions, representing state transitions
-* A set of consensus rules, governing what constitutes a transaction and what makes for a valid state transition
-* A state machine that processes transactions according to the consensus rules
-* A chain of cryptographically secured blocks that acts as a journal of all the verified and accepted state transitions
-* A consensus algorithm that decentralizes control over the blockchain, by forcing participants to cooperate in the enforcement of the consensus rules
-* A game-theoretically sound incentivization scheme (e.g., proof-of-work costs plus block rewards) to economically secure the state machine in an open pass:[<span class="keep-together">environment</span>]
-* One or more open source software implementations of the above ("clients")
+* 基于标准的"gossip"协议 pass:[<span class="keep-together">协议</span>] 连接参与者并传播交易和验证交易块的对等(P2P)网络
+* 以事务形式表示状态转换的消息
+* 一组共识规则，用于管理构成交易的内容以及实现有效状态转换
+* 根据共识规则来处理交易的状态机
+* 加密安全的块组成的链，作为所有经过验证和接受的状态转换的日志
+* 一种共识算法，通过强制参与者合作执行共识规则来实现对区块链的去中心化控制
+* 理论上合理的博弈激励方案(例如，工作量证明成本加区块奖励)，以在开放 pass:[<span class="keep-together">环境</span>] 中经济地保护状态机的安全
+* 上述客户端的一个或多个开源软件实现
 
-All or most of these components are usually combined in a single software client. For example, in ((("Bitcoin Core")))((("bitcoind client")))Bitcoin, the reference implementation is developed by the _Bitcoin Core_ open source project and implemented as the _bitcoind_ client. In Ethereum, rather than a reference implementation there is a ((("reference specification")))_reference specification_, a mathematical description of the system in the Yellow Paper (see <<references>>). There are a number of clients, which are built according to the reference specification.
+所有或大部分这些组件通常组合在一个单一的软件客户端中。例如，在比特币中，参考实现是由 _Bitcoin Core_ 开源项目开发的，并作为 _bitcoind_ 客户端实现。在以太坊中，不是一个参考实现，而是一个 _参考规范_，在黄皮书中有对系统的数学描述(请参阅 <<references>>)。 有许多客户端是根据参考规范构建的。
 
-In the past, we used the term "blockchain" to represent all of the components just listed, as a shorthand reference to the combination of technologies that encompass all of the characteristics described. Today, however, there are a huge variety of blockchains with different properties. We need qualifiers to help us understand the characteristics of the blockchain in question, such as _open, public, global, decentralized, neutral,_ and _censorship-resistant_, to identify the important emergent characteristics of a "blockchain" system that these components allow.
+在过去，我们使用术语“区块链”来表示刚刚列出的所有组件，以简写参考来包含所描述的所有特征的技术组合。 然而，今天，有各种各样的区块链具有不同的属性。我们需要限定符来帮助我们理解所讨论的区块链的特征，例如 _开放，公开，全球，去中心化，中立，_ 和 _反审查_ ，以确定这些组件允许的“区块链”系统的重要新兴特征。
 
-Not all blockchains are created equal. When someone tells you that something is a blockchain, you have not received an answer; rather, you need to start asking a lot of questions to clarify what they mean when they use the word "blockchain." Start by asking for a description of the components in the preceding list, then ask whether this "blockchain" exhibits the characteristics of being _open, public_, etc.
+并非所有区块链都是一样的。 当有人告诉你某些东西是区块链时，你还没有得到答案; 相反，你需要开始提出很多问题来澄清他们使用“区块链”这个词时的含义。 首先要求对前面列表中的组件进行描述，然后询问这个“区块链”是否具有 _开放，公开_ 等特征。
 
 [[ethereum_birth]]
-=== The Birth of Ethereum
+=== 以太坊的诞生
 
-((("Ethereum (generally)","birth of")))All great innovations solve real problems, and Ethereum is no exception. Ethereum was conceived at a time when people recognized the power of the Bitcoin model, and were trying to move beyond cryptocurrency applications. But developers faced a conundrum: they either needed to build on top of Bitcoin or start a new blockchain. ((("Bitcoin","limitations of")))Building upon Bitcoin meant living within the intentional constraints of the network and trying to find workarounds. The limited set of transaction types, data types, and sizes of data storage seemed to limit the sorts of applications that could run directly on Bitcoin; anything else needed additional off-chain layers, and that immediately negated many of the advantages of using a public blockchain. For projects that needed more freedom and flexibility while staying on-chain, a new blockchain was the only option. But that meant a lot of work: bootstrapping all the infrastructure elements, exhaustive testing, etc.
+所有伟大的创新都解决了实际问题，以太坊也不例外。以太坊是在人们认识到比特币模型的力量，并试图超越加密货币应用的时候构思出来的。但开发人员面临一个难题：他们要么基于比特币之上，要么构建一个新的区块链。 ((("Bitcoin","limitations of"))) 在比特币的基础上发展意味着生活在网络的有意限制之下，并试图找到解决办法。有限的交易类型、数据类型和数据存储大小似乎限制了可以直接在比特币上运行的应用程序的种类；其他任何应用程序都需要额外的离链层，这立即否定了使用公共块链的许多优点。对于那些需要更多的自由和灵活性而又保持在链上的项目，一个新的区块链是唯一的选择。但是这意味着大量的工作：引导所有的基础设施元素，详尽的测试，等等。
 
-((("Buterin, Vitalik","and birth of Ethereum")))Toward the end of 2013, Vitalik Buterin, a young programmer and Bitcoin enthusiast, started thinking about further extending the capabilities of Bitcoin and Mastercoin (an overlay protocol that extended Bitcoin to offer rudimentary smart contracts). In October of that year, Vitalik proposed a more generalized approach to the Mastercoin team, one that allowed flexible and scriptable (but not Turing-complete) contracts to replace the specialized contract language of Mastercoin. While the Mastercoin team were impressed, this proposal was too radical a change to fit into their development roadmap.
+((("Buterin, Vitalik","and birth of Ethereum"))) 2013年底，年轻的程序员，比特币爱好者Vitalik Buterin开始考虑进一步扩展比特币和Mastercoin（一种将比特币扩展到提供基本智能合约的覆盖协议）的功能。 同年10月，Vitalik对Mastercoin团队提出了一种更为通用的方法，即允许灵活且可编写脚本（但不是图灵完全）的合约取代Mastercoin的专用合约语言。 虽然Mastercoin团队对此印象深刻，但这个提议过于激进，无法适应他们的发展路线图。
 
-In December 2013, Vitalik started sharing a whitepaper that outlined the idea behind Ethereum: a Turing-complete, general-purpose blockchain. A few dozen people saw this early draft and offered feedback, helping Vitalik evolve the proposal.
+2013年12月，Vitalik开始分享一份白皮书，概述了以太坊背后的理念：图灵完整的通用区块链。 几十人看到了这个早期的草案并提供了反馈，帮助Vitalik改进了提案。
 
-Both of the authors of this book received an early draft of the whitepaper and commented on it. Andreas M. Antonopoulos was intrigued by the idea and asked Vitalik many questions about the use of a separate blockchain to enforce consensus rules on smart contract execution and the implications of a Turing-complete language. Andreas continued to follow Ethereum's progress with great interest but was in the early stages of writing his book _Mastering Bitcoin_, and did not participate directly in Ethereum until much later. ((("Wood, Dr. Gavin","and birth of Ethereum")))Dr. Gavin Wood, however, was one of the first people to reach out to Vitalik and offer to help with his C++ programming skills. Gavin became Ethereum's cofounder, codesigner, and CTO.
+这本书的两位作者都收到了白皮书的早期草稿，并对其进行了评论。Andreas M. Antonopoulos对这一想法很感兴趣，他向Vitalik提出了许多关于使用单独的区块链来执行智能合同执行的共识规则的问题，以及图灵完备语言的含义。Andreas以极大的兴趣继续关注以太坊的进展，但仍处于撰写他的著作“精通比特币”的早期阶段，直到很久之后才直接参与到以太坊。然而，Gavin Wood博士是最早接触Vitalik并提出提供他的C+编程技能的人之一。Gavin Wood成为了以太坊联合创始人、编码人和CTO。
 
-As Vitalik recounts in his http://bit.ly/2T2t6zs["Ethereum Prehistory" post]: 
+正如Vitalik在他的 http://bit.ly/2T2t6zs["以太坊前史" ] 中所述:
 
 ____
-This was the time when the Ethereum protocol was entirely my own creation. From here on, however, new participants started to join the fold. By far the most prominent on the protocol side was Gavin Wood...
 
-Gavin can also be largely credited for the subtle change in vision from viewing Ethereum as a platform for building programmable money, with blockchain-based contracts that can hold digital assets and transfer them according to pre-set rules, to a general-purpose computing platform. This started with subtle changes in emphasis and terminology, and later this influence became stronger with the increasing emphasis on the “Web 3” ensemble, which saw Ethereum as being one piece of a suite of decentralized technologies, the other two being Whisper and Swarm.
+此刻之前， 以太坊协议完全由我创建。 然而，从这里开始，新的参与者开始加入这个领域。 到目前为止，协议方面最突出的是Gavin Wood ......
+
+Gavin在很大程度上也可以归功于愿景的微妙变化，开始， 把以太坊视为构建可编程货币的平台，基于区块链的合约，可以持有数字资产并按照预先设定的规则进行转让，然后， 转到通用计算平台。这开始于重点和术语的微妙变化，随后越来越强调“Web3”集合，这使得以太坊成为一个去中心化技术的一部分，另外两个是Whisper和Swarm，这种影响变得更强。
 ____
 
-Starting in December 2013, Vitalik and Gavin refined and evolved the idea, together building the protocol layer that became Ethereum.
+从2013年12月开始，Vitalik和Gavin对这一想法进行了改进和发展，共同构建了协议层，该协议层后来成为以太坊。
 
-Ethereum's founders were thinking about a blockchain without a specific purpose, that could support a broad variety of applications by being _programmed_. The idea was that by using a general-purpose blockchain like Ethereum, a developer could program their particular application without having to implement the underlying mechanisms of peer-to-peer networks, blockchains, consensus algorithms, etc. The Ethereum platform was designed to abstract these details and provide a deterministic and secure programming environment for decentralized blockchain applications.
+以太坊的创始人正在考虑没有特定目的的区块链，可以通过 _可编程_ 来支持各种各样的应用程序。 这个想法是通过使用像以太坊这样的通用区块链，开发人员可以编写他们的特定应用程序，而无需实现对等网络，区块链，共识算法等基础机制。以太坊平台旨在抽象 这些细节为去中心化的区块链应用程序提供确定的和安全的编程环境。
 
-Much like Satoshi, Vitalik and Gavin didn't just invent a new technology; they combined new inventions with existing technologies in a novel way and delivered the prototype code to prove their ideas to the world.
+就像中本聪一样，Vitalik和Gavin不仅发明了一种新技术；他们还以一种新颖的方式将新发明与现有技术结合起来，并向世界传递了原型代码，以证明他们的想法。
 
-The founders worked for years, building and refining the vision. And on July 30, 2015, the first Ethereum block was mined. The world's computer started serving the world.
+创始人们工作多年，建立和完善愿景。 2015年7月30日，第一个以太坊区块被开采。 世界上的计算机开始为世界服务。
 
 [NOTE]
 ====
-Vitalik Buterin's article "A Prehistory of Ethereum" was published in September 2017 and provides a fascinating first-person view of Ethereum's earliest moments.
+Vitalik Buterin的文章“以太坊的史前史”于2017年9月出版，为以太坊最早的时刻提供了一个迷人的第一人称视角。
 
-You can read it at
-https://vitalik.ca/general/2017/09/14/prehistory.html[].
+你可以在这里阅读 https://vitalik.ca/general/2017/09/14/prehistory.html[].
 ====
 
 [[development_stages]]
-=== Ethereum's Four Stages of Development
+=== 以太坊开发的四个阶段
 
-((("Ethereum (generally)","four stages of development")))Ethereum's development was planned over four distinct stages, with major changes occurring at each stage. ((("hard forks", seealso="DAO; other specific hard forks, e.g.: Spurious Dragon")))A stage may include subreleases, known as "hard forks," that change functionality in a way that is not backward compatible.
+((("Ethereum (generally)","four stages of development")))以太的发展经历了四个不同的阶段，每个阶段都发生了很大的变化。 ((("hard forks", seealso="DAO; other specific hard forks, e.g.: Spurious Dragon")))阶段可能包括称为“硬分叉”的子版本，这些子版本以不向后兼容的方式更改功能。
 
-The four main development stages are codenamed _Frontier_, _Homestead_, _Metropolis_, and _Serenity_. The intermediate hard forks that have occurred (or are planned) to date are codenamed _Ice Age_, _DAO_, _Tangerine Whistle_, _Spurious Dragon_, _Byzantium_, and _Constantinople_. Both the development stages and the intermediate hard forks are shown on the following timeline, which is "dated" by  block number:
+四个主要发展阶段的代号为 _前沿(Frontier)_, _家园(Homestead)_, _大都会(Metropolis)_ , 和 _宁静(Serenity)_ . 到目前为止已发生(或计划中)的中间硬分叉代号为 _冰期(Ice Age)_ 、_DAO_、_Tangerine Whistle_、_伪龙(Spurious Dragon)_、_拜占庭(Byzantium)_ 和 _君士坦丁堡(Constantinople)_ 。发展阶段和中间硬叉都显示在以下时间线上，按块号确定日期：
 
+区块 #0:: ((("Frontier")))__前沿(Frontier)__&#x2014;以太的初始阶段，从2015年7月30日持续到2016年3月。
 
-Block #0:: ((("Frontier")))__Frontier__&#x2014;The initial stage of Ethereum, lasting from July 30, 2015, to March 2016.
+区块 #200,000:: ((("Ice Age")))__冰期(Ice Age)__&#x2014;一个硬分叉引入指数式难度增加，以激励准备好后转换到pos。
 
-Block #200,000:: ((("Ice Age")))__Ice Age__&#x2014;A hard fork to introduce an exponential difficulty increase, to motivate a transition to PoS when ready.
+区块 #1,150,000:: ((("Homestead")))__家园(Homestead)__&#x2014;以太坊的第二阶段于2016年3月推出。
 
-Block #1,150,000:: ((("Homestead")))__Homestead__&#x2014;The second stage of Ethereum, launched in March 2016.
+区块 #1,192,000:: ((("DAO (Decentralized Autonomous Organization)")))__DAO__&#x2014;一种硬分叉，用来补偿被黑客攻击的DAO合约的受害者，并导致以太坊和以太坊经典分裂成两个相互竞争的系统。
 
-Block #1,192,000:: ((("DAO (Decentralized Autonomous Organization)")))__DAO__&#x2014;A hard fork that reimbursed victims of the hacked DAO contract and caused Ethereum and Ethereum Classic to split into two competing systems.
+区块 #2,463,000:: ((("Tangerine Whistle")))__Tangerine Whistle__&#x2014;一种硬分支，用于改变某些I/O操作的gas计算，并清除利用这些操作的低gas成本的拒绝服务（DoS）攻击的累积状态。
 
-Block #2,463,000:: ((("Tangerine Whistle")))__Tangerine Whistle__&#x2014;A hard fork to change the gas calculation for certain I/O-heavy operations and to clear the accumulated state from a denial-of-service (DoS) attack that exploited the low gas cost of those operations.
-
-Block #2,675,000:: ((("Spurious Dragon")))__Spurious Dragon__&#x2014;A hard fork to address more DoS attack vectors, and another state clearing. Also, a replay attack protection mechanism.
-
-
-Block #4,370,000:: ((("Metropolis")))((("Byzantium fork")))__Metropolis Byzantium__&#x2014;Metropolis is the third stage of Ethereum, current at the time of writing this book, launched in October 2017. Byzantium is the first of two hard forks planned for Metropolis.
+区块 #2,675,000:: ((("Spurious Dragon")))__伪龙(Spurious Dragon)__&#x2014;解决更多DoS攻击向量的硬分叉，以及另一个状态清除。 另外，还有一种重放攻击保护机制。
 
 
-After Byzantium, there is one more hard fork planned for Metropolis: ((("Constantinople fork")))((("Serenity")))Constantinople. Metropolis will be followed by the final stage of Ethereum's deployment, codenamed Serenity.
+区块 #4,370,000:: ((("Metropolis")))((("Byzantium fork")))__大都会 拜占庭__&#x2014;大都会是以太坊的第三个阶段，目前在撰写本书时，于2017年10月推出。拜占庭是大都会计划的两个硬叉中的第一个。
+
+
+在拜占庭之后，还有另一个为大都会计划的硬分叉： ((("Constantinople fork")))((("Serenity"))) 君士坦丁堡。 大都会之后将是以太坊部署的最后阶段，代号为宁静(Serenity)。
 
 
 [[general_purpose_blockchain]]
-=== Ethereum: A General-Purpose Blockchain
+=== 以太坊：通用区块链
 
-((("Bitcoin","Ethereum blockchain compared to Bitcoin blockchain")))((("Ethereum (generally)","as general-purpose blockchain")))The original blockchain, namely Bitcoin's blockchain, tracks the state of units of bitcoin and their ownership. ((("distributed state machine, Ethereum as")))You can think of Bitcoin as a distributed consensus _state machine_, where transactions cause a global _state transition_, altering the ownership of coins. The state transitions are constrained by the rules of consensus, allowing all participants to (eventually) converge on a common (consensus) state of the system, after several blocks are mined.
+((("Bitcoin","Ethereum blockchain compared to Bitcoin blockchain")))((("Ethereum (generally)","as general-purpose blockchain")))最初的区块链，即比特币的区块链，跟踪比特币的单位状态及其所有权。 ((("distributed state machine, Ethereum as")))你可以将比特币视为分布式共识 _状态机_，其中交易导致全局 _状态转换_，从而改变硬币的所有权。 状态转换受到共识规则的约束，允许所有参与者在开采一些区块之后（最终）收敛于系统的共同（共识）状态。
 
-Ethereum is also a distributed state machine. But instead of tracking only the state of currency ownership, ((("key-value tuple")))Ethereum tracks the state transitions of a general-purpose data store, i.e., a store that can hold any data expressible as a _key–value tuple_. A key–value data store holds arbitrary values, each referenced by some key; for example, the value "Mastering Ethereum" referenced by the key "Book Title". In some ways, this serves the same purpose as the data storage model of _Random Access Memory_ (RAM) used by most general-purpose computers. Ethereum has memory that stores both code and data, and it uses the Ethereum blockchain to track how this memory changes over time. Like a general-purpose stored-program computer, Ethereum can load code into its state machine and _run_ that code, storing the resulting state changes in its blockchain. Two of the critical differences from most general-purpose computers are that Ethereum state changes are governed by the rules of consensus and the state is distributed globally. Ethereum answers the question: "What if we could track any arbitrary state and program the state machine to create a world-wide computer operating under consensus?"
+以太坊也是一个分布式状态机。但是，以太网不仅仅跟踪货币所有权状态，((("key-value tuple")))而是跟踪通用数据存储的状态转换，即可以保存任何可表示为 _键值元组_ 的数据的存储。键值数据存储包含任意值，每个值由某个键引用;例如，键“Book Title”引用的值“Mastering Ethereum”。在某些方面，这与大多数通用计算机使用的 _随机存取存储器（RAM）_ 的数据存储模型具有相同的目的。以太坊拥有存储代码和数据的内存，它使用以太坊区块链来跟踪内存随时间的变化情况。与通用存储程序计算机一样，以太坊可以将代码加载到其状态机中并运行该代码，将结果状态更改存储在其区块链中。与大多数通用计算机存在的两个关键区别是，以太坊状态变化受共识规则的约束，而状态则是全球分布的。以太坊回答了这个问题：“我们怎么可以跟踪任意状态并对状态机进行编程以创建一个在共识下运行的全球计算机？”
 
 [[ethereum_components]]
-=== Ethereum's Components
+=== 以太坊的组件
 
-((("blockchain","components of")))((("Ethereum (generally)","blockchain components")))In Ethereum, the components of a blockchain system described in <<blockchain_components>> are, more specifically:
+((("blockchain","components of")))((("Ethereum (generally)","blockchain components")))在以太坊中， 区块链系统的组件描述在这里 <<blockchain_components>>, 具体的说：
 
+P2P网络:: 以太坊在以太坊主网络上运行，该主网络可在TCP端口30303上寻址，并运行一个名为ÐΞVp2p的协议。
 
-P2P network:: Ethereum runs on the _Ethereum main network_, which is addressable on TCP port 30303, and runs a protocol called _ÐΞVp2p_.
+共识规则:: 以太坊的共识规则定义在参考规范， 即黄皮书里 (参考 <<references>>).
 
-Consensus rules:: Ethereum's consensus rules are defined in the reference specification, the Yellow Paper (see <<references>>).
+交易:: 以太坊交易是包含(除其他事项外)发送者、接受者、值和数据负载在内的网络消息。
 
-Transactions:: Ethereum transactions are network messages that include (among other things) a sender, recipient, value, and data payload.
+状态机:: 以太坊状态转换由 _以太坊虚拟机（EVM）_ 处理，这是一个执行 _字节码_（机器语言指令）的基于堆栈的虚拟机。 称为“智能合约”的EVM程序以高级语言（例如，Solidity）编写并编译为字节码以在EVM上执行。
 
-[role="pagebreak-before"]
-State machine:: Ethereum state transitions are processed by the _Ethereum Virtual Machine_ (EVM), a stack-based virtual machine that executes _bytecode_ (machine-language instructions). EVM programs, called "smart contracts," are written in high-level languages (e.g., Solidity) and compiled to bytecode for execution on the EVM.
+数据结构:: 以太坊的状态作为 _数据库_（通常是Google的LevelDB）本地存储在每个节点上，其中包含序列化哈希数据结构中的交易和系统状态，称为 _MPT树_。
 
-Data structures:: Ethereum's state is stored locally on each node as a _database_ (usually Google's LevelDB), which contains the transactions and system state in a serialized hashed data structure called a _Merkle Patricia Tree_.
+共识算法:: 以太坊使用比特币的共识模型中本聪共识，它使用顺序单一签名块，由PoW加权重要性来确定最长链，从而确定当前状态。 但是，有计划在不久的将来转向代号为 _Casper_ 的PoS加权投票系统。
 
-Consensus algorithm:: Ethereum uses Bitcoin's consensus model, Nakamoto Consensus, which uses sequential single-signature blocks, weighted in importance by PoW to determine the longest chain and therefore the current state. However, there are plans to move to a PoS weighted voting system, codenamed _Casper_, in the near future.
+经济安全:: 以太坊目前使用名为 _Ethash_ 的PoW算法，但最终将在未来某个时候迁移到PoS。
 
-Economic security:: Ethereum currently uses a PoW algorithm called _Ethash_, but this will eventually be dropped with the move to PoS at some point in the future.
-
-Clients:: Ethereum has several interoperable implementations of the client software, the most prominent of which are _Go-Ethereum_ (_Geth_) and _Parity_.
+客户端:: 以太坊有几个可互操作的客户端软件实现，其中最突出的是 _Go-Ethereum_（_Geth_）和 _Parity_。
 
 [[references]]
-==== Further Reading
+==== 进一步阅读
 
-The following references provide additional information on the technologies mentioned here:
+以下参考资料提供了有关此处提及的技术的其他信息：
 
-* The Ethereum Yellow Paper:
+* 以太坊黄皮书:
 https://ethereum.github.io/yellowpaper/paper.pdf
 
-* The Beige Paper, a rewrite of the Yellow Paper for a broader audience in less formal language:
+* The Beige Paper, 面向更广泛的受众， 用非正式的语言重写了黄皮书:
 https://github.com/chronaeon/beigepaper
 
-* ÐΞVp2p network protocol:
+* ÐΞVp2p 网络协议:
 http://bit.ly/2quAlTE
 
-* Ethereum Virtual Machine list of resources:
+* 以太坊虚拟机资源列表:
 http://bit.ly/2PmtjiS
 
-* LevelDB database (used most often to store the local copy of the blockchain):
+* LevelDB 数据库 (最常用于存储区块链的本地副本):
 http://leveldb.org
 
-* Merkle Patricia trees:
+* 梅克尔帕特里夏树（Merkle Patricia trees）:
 https://github.com/ethereum/wiki/wiki/Patricia-Tree
 
-* Ethash PoW algorithm:
+* Ethash PoW 算法:
 https://github.com/ethereum/wiki/wiki/Ethash
 
-* Casper PoS v1 Implementation Guide:
+* Casper PoS v1 实现指南:
 http://bit.ly/2DyPr3l
 
-* Go-Ethereum (Geth) client:
+* Go-Ethereum (Geth) 客户端:
 https://geth.ethereum.org/
 
-* Parity Ethereum client:
+* Parity Ethereum 客户端:
 https://parity.io/
 
 [[turing_completeness]]
-=== Ethereum and Turing Completeness
+=== 以太坊和图灵完备
 
-((("Ethereum (generally)","Turing completeness and")))((("Turing completeness","Ethereum and")))As soon as you start reading about Ethereum, you will immediately encounter the term "Turing complete." Ethereum, they say, unlike Bitcoin, is Turing complete. What exactly does that mean?
+((("Ethereum (generally)","Turing completeness and")))((("Turing completeness","Ethereum and")))一旦你开始阅读以太坊，你会立即遇到“图灵完备”这个术语。 他们说，以太坊与比特币不同，是图灵完备的。 这到底是什么意思呢？
 
-((("Turing, Alan")))The term refers to English mathematician Alan Turing, who is considered the father of computer science. In 1936 he created a mathematical model of a computer consisting of a state machine that manipulates symbols by reading and writing them on sequential memory (resembling an infinite-length paper tape). With this construct, Turing went on to provide a mathematical foundation to answer (in the negative) questions about _universal computability_, meaning whether all problems are solvable. He proved that there are classes of problems that are uncomputable. ((("halting problem")))Specifically, he proved that the _halting problem_ (whether it is possible, given an arbitrary program and its input, to determine whether the program will eventually stop running) is not solvable.
+((("Turing, Alan")))该术语指的是英国数学家阿兰·图灵，他被认为是计算机科学之父。 1936年，他创建了一个计算机的数学模型，该计算机由状态机组成，通过在顺序存储器上读取和写入符号来操纵符号（类似于无限长的纸带）。 通过这种结构，图灵继续提供一个数学基础来回答（负面的）关于 _通用可计算_ 的问题，即是否所有问题都是可解决的。 他证明了存在一些无法计算的问题。具体来说，他证明了 _停机问题_（无论是否有可能，给定一个任意程序及其输入，以确定程序是否最终会停止运行）是不可解决的。
 
-((("Universal Turing machine (UTM)")))((("UTM (Universal Turing machine)")))Alan Turing further defined a system to be _Turing complete_ if it can be used to simulate any Turing machine. Such a system is called a _Universal Turing machine_ (UTM).
+((("Universal Turing machine (UTM)")))((("UTM (Universal Turing machine)")))如果可以用来模拟任何图灵机，阿兰·图灵进一步将系统定义为 _图灵完备_。 这样的系统被称为 _通用图灵机_（UTM）。
 
-Ethereum's ability to execute a stored program, in a state machine called the Ethereum Virtual Machine, while reading and writing data to memory makes it a Turing-complete system and therefore a UTM. Ethereum can compute any algorithm that can be computed by any Turing machine, given the limitations of finite memory.
+以太坊能够在称为以太坊虚拟机的状态机中执行存储程序，同时向内存读取和写入数据，使其成为图灵完备系统，因此成为UTM。 考虑到有限存储器的限制，以太坊可以计算任何可由任何图灵机计算的算法。
 
-Ethereum's groundbreaking innovation is to combine the general-purpose computing architecture of a stored-program computer with a decentralized blockchain, thereby creating a distributed single-state (singleton) world computer. Ethereum programs run "everywhere," yet produce a common state that is secured by the rules of pass:[<span class="keep-together">consensus</span>].
+以太坊的突破性创新是将存储程序计算机的通用计算体系结构与去中心化的区块链相结合，从而创建分布式单个状态（单例）世界计算机。 以太坊运行在任何地方，但却产生了一个由共识规则保护的共同状态。
 
 [[turing_completeness_feature]]
-==== Turing Completeness as a "Feature"
+==== 图灵完备作为一个“特性”
 
-((("Turing completeness","as feature")))Hearing that Ethereum is Turing complete, you might arrive at the conclusion that this is a _feature_ that is somehow lacking in a system that is Turing incomplete. Rather, it is the opposite. Turing completeness is very easy to achieve; in fact, http://bit.ly/2ABft33[the simplest Turing-complete state machine known]  has 4 states and uses 6 symbols, with a state definition that is only 22 instructions long. Indeed, sometimes systems are found to be "accidentally Turing complete." A fun reference of such systems can be found at http://bit.ly/2Og1VgX[].
+((("Turing completeness","as feature")))听到以太坊是图灵完备的，你可能会得出这样的结论：在图灵不完整的系统中，这是一个 _特性_ ，不知何故缺少的特性。相反，图灵完备性很容易实现；实际上，http://bit.ly/2ABft33[已知的最简单的图灵完备状态机] 有4个状态，使用6个符号，状态定义只有22条指令。事实上，有时系统被发现是“意外的图灵完备”。关于这类系统的一个有趣的参考资料可以在http://bit.ly/2Og1VgX[].上找到。
 
-However, Turing completeness is very dangerous, particularly in open access systems like public blockchains, because of the halting problem we touched on earlier. For example, modern printers are Turing complete and can be given files to print that send them into a frozen state. The fact that Ethereum is Turing complete means that any program of any complexity can be computed by Ethereum. But that flexibility brings some thorny security and resource management problems. An unresponsive printer can be turned off and turned back on again. That is not possible with a public blockchain.
+然而，图灵完备是非常危险的，特别是在公共区块链等开放式访问系统中，因为我们之前提到的停机问题。 例如，现代打印机是图灵完成的，可以给出打印文件，将它们发送到冻结状态。 以太坊是图灵完整的这一事实意味着任何复杂程序都可以由以太坊计算。 但这种灵活性带来了一些棘手的安全和资源管理问题。 无响应的打印机可以关闭并再次打开。 使用公共区块链是不可能的。
 
 [[turing_completeness_implications]]
-==== Implications of Turing Completeness
+==== 图灵完备的含义
 
-((("Turing completeness","implications of")))Turing proved that you cannot predict whether a program will terminate by simulating it on a computer. In simple terms, we cannot predict the path of a program without running it. ((("infinite loops")))Turing-complete systems can run in "infinite loops," a term used (in oversimplification) to describe a program that does not terminate. It is trivial to create a program that runs a loop that never ends. But unintended never-ending loops can arise without warning, due to complex interactions between the starting conditions and the code. In Ethereum, this poses a challenge: every participating node (client) must validate every transaction, running any smart contracts it calls. But as Turing proved, Ethereum can't predict if a smart contract will terminate, or how long it will run, without actually running it (possibly running forever). Whether by accident or on purpose, a smart contract can be created such that it runs forever when a node attempts to validate it. This is effectively a DoS attack. And of course, between a program that takes a millisecond to validate and one that runs forever are an infinite range of nasty, resource-hogging, memory-bloating, CPU-overheating programs that simply waste resources. In a world computer, a program that abuses resources gets to abuse the world's resources. How does Ethereum constrain the resources used by a smart contract if it cannot predict resource use in advance?
+((("Turing completeness","implications of"))) 图灵证明，你无法通过在计算机上模拟程序来预测程序是否会终止。简单来说，我们无法在不运行程序的情况下预测程序运行的路径。 ((("infinite loops")))图灵完备系统可以在“无限循环”中运行，这个术语用于（过度简化）来描述不终止的程序。创建一个运行永不停止的循环的程序是微不足道的。但是由于起始条件和代码之间的复杂交互，无意中永无止境的循环可能会在没有警告的情况下出现。在以太坊中，这提出了一个挑战：每个参与节点（客户端）必须验证每个事务，运行它调用的任何智能合约。但是，正如图灵所证明的那样，以太坊无法预测智能合约是否将终止，或者它将运行多长时间而不实际运行它（可能永远运行）。无论是偶然还是故意，都可以创建智能合约，使其在节点尝试验证时永远运行。这实际上是DoS攻击。当然，在一个需要一毫秒验证的程序和一个永远运行的程序之间是一系列令人讨厌的资源占用，内存膨胀，CPU过热的程序，它们只会浪费资源。在世界计算机中，滥用资源的程序会滥用世界资源。如果无法预先预测资源使用情况，以太坊如何限制智能合约使用的资源？
 
-((("EVM (Ethereum Virtual Machine)","gas and")))((("gas","as counter to Turing completeness")))To answer this challenge, Ethereum introduces a metering mechanism called _gas_. As the EVM executes a smart contract, it carefully accounts for every instruction (computation, data access, etc.). Each instruction has a predetermined cost in units of gas. When a transaction triggers the execution of a smart contract, it must include an amount of gas that sets the upper limit of what can be consumed running the smart contract. The EVM will terminate execution if the amount of gas consumed by computation exceeds the gas available in the transaction. Gas is the mechanism Ethereum uses to allow Turing-complete computation while limiting the resources that any program can consume.
+((("EVM (Ethereum Virtual Machine)","gas and")))((("gas","as counter to Turing completeness")))为了应对这一挑战，以太坊引入了一种名为 _gas_ 的计量机制。 当EVM执行智能合约时，它会仔细考虑每条指令（计算，数据访问等）。 每个指令具有以gas为单位的预定成本。 当一个交易触发智能合约的执行时，它必须包含一定数量的gas，用于设定运行智能合约的消耗量的上限。 如果计算消耗的gas量超过交易中可用的gas，则EVM将终止执行。 Gas是以太坊用于允许图灵完备计算同时限制任何程序可以消耗的资源的机制。
 
-The next question is, 'how does one get gas to pay for computation on the Ethereum world computer?' You won't find gas on any exchanges. ((("ether (generally)","gas and")))It can only be purchased as part of a transaction, and can only be bought with ether. Ether needs to be sent along with a transaction and it needs to be explicitly earmarked for the purchase of gas, along with an acceptable gas price. Just like at the pump, the price of gas is not fixed. Gas is purchased for the transaction, the computation is executed, and any unused gas is refunded back to the sender of the transaction.
+下一个问题是，“如何在以太世界计算机上获得gas来支付计算费用？”你在任何交易所都找不到gas。((("ether (generally)","gas and")))它只能作为交易的一部分购买，并且只能用以太币购买。以太币需要随交易一起发送，并且需要明确指定用于购买gas，以及可接受的gas价格。就像在加油站一样，gas的价格是不固定的。为交易购买GAS，执行计算，并将任何未使用的gas退回给交易的发送方。
 
 [[DApp]]
-=== From General-Purpose Blockchains to Decentralized Applications (DApps)
+=== 从通用区块链到分散应用（DApps）
 
-((("DApps (decentralized applications)","Ethereum as platform for")))((("Ethereum (generally)","DApps and")))Ethereum started as a way to make a general-purpose blockchain that could be programmed for a variety of uses. But very quickly, Ethereum's vision expanded to become a platform for programming DApps. DApps represent a broader perspective than smart contracts. A DApp is, at the very least, a smart contract and a web user interface. More broadly, a DApp is a web application that is built on top of open, decentralized, peer-to-peer infrastructure services.
+((("DApps (decentralized applications)","Ethereum as platform for")))((("Ethereum (generally)","DApps and")))以太坊开始作为一种制作通用区块链的方法，该区块链可以被编程用于各种用途。 但很快，以太坊的愿景扩展到成为DApps编程的平台。 DApps代表了比智能合约更广泛的视角。DApp至少是一个智能合约和一个Web用户界面。 更广泛地说，DApp是一个基于开放，分散的点对点基础设施服务构建的Web应用程序。
 
-A DApp is composed of at least:
+一个Dapp至少包含:
 
-- Smart contracts on a blockchain
-- A web frontend user interface
+- 区块链上的智能合约
+- 一个web前端用户界面
 
-In addition, many DApps include other decentralized components, such as:
+此外，许多DApps还包括其他去中心化的组件，例如:
 
-- A decentralized (P2P) storage protocol and platform
-- A decentralized (P2P) messaging protocol and platform
+- 一个去中心化的（P2P）存储协议和平台
+- 一个去中心化的（P2P）消息协议和平台
 
 [TIP]
 ====
-You may see DApps spelled as _&#208;Apps_. The &#208; character is the Latin character called "ETH," alluding to Ethereum. To display this character, use the Unicode codepoint +0xD0+, or if necessary the HTML character entity +eth+ (or decimal entity +#208+).
+你可能会看到DApp拼写为 _&#208;Apps_。 &#208; 字符是拉丁字符，称为“ETH”，暗指以太坊。 要显示此字符，请使用Unicode编码 +0xD0+ ，或者必要时使用HTML字符 +eth+（或十进制 +#208+）。
 ====
 
 [[evolving_WWW]]
-=== The Third Age of the Internet
+=== 互联网的第三个时代
 
-((("DApps (decentralized applications)","web3 and")))((("Ethereum (generally)","web3 and")))((("web3")))In 2004 the term "Web 2.0" came to prominence, describing an evolution of the web toward user-generated content, responsive interfaces, and interactivity. Web 2.0 is not a technical specification, but rather a term describing the new focus of web pass:[<span class="keep-together">applications</span>].
+((("DApps (decentralized applications)","web3 and")))((("Ethereum (generally)","web3 and")))((("web3")))2004年，术语“Web2.0”脱颖而出，描述了Web向用户生成内容、响应性界面和交互性的演变。
+Web2.0不是一个技术规范，而是一个描述Web  pass:[<span class="keep-together">应用程序</span>]新焦点的术语
 
-The concept of DApps is meant to take the World Wide Web to its next natural evolutionary stage, introducing decentralization with peer-to-peer protocols into every aspect of a web application. The term used to describe this evolution is _web3_, meaning the third "version" of the web. ((("Wood, Dr. Gavin","and web3")))First proposed by Dr. Gavin Wood, web3 represents a new vision and focus for web applications: from centrally owned and managed applications, to applications built on decentralized protocols.
+DApps的概念旨在将万维网带入其下一个自然进化阶段，将点对点协议的去中心化引入Web应用程序的各个方面。 用于描述这种演变的术语是 _web3_，意思是web的第三个“版本”。((("Wood, Dr. Gavin","and web3"))) Web3首先由Gavin Wood博士提出，它代表了Web应用程序的新愿景和重点：从集中拥有和托管应用程序到基于去中心化协议的应用程序。
 
-In later chapters we'll explore the Ethereum web3.js JavaScript library, which bridges JavaScript applications that run in your browser with the Ethereum blockchain. The web3.js library also includes an interface to a P2P storage network called _Swarm_ and a P2P messaging service called _Whisper_. With these three components included in a JavaScript library running in your web browser, developers have a full application development suite that allows them to build web3 DApps.
+在后面的章节中，我们将探索以太坊web3.js JavaScript库，它将浏览器中运行的JavaScript应用程序与以太坊区块链联系起来。 web3.js库还包括一个名为 _Swarm_ 的P2P存储网络接口和一个名为 _Whisper_ 的P2P消息服务。 通过在Web浏览器中运行的JavaScript库中包含这三个组件，开发人员可以使用完整的应用程序开发套件来构建web3 DApp。
 
 [[development_culture]]
-=== Ethereum's Development Culture
+=== 以太坊发展文化
 
-((("development culture, Ethereum")))((("Ethereum (generally)","development culture")))So far we've talked about how Ethereum's goals and technology differ from those of other blockchains that preceded it, like Bitcoin. Ethereum also has a very different development culture.
+((("development culture, Ethereum")))((("Ethereum (generally)","development culture")))到目前为止，我们已经讨论过以太坊的目标和技术与之前的其他区块链（如比特币）的区别。 以太坊也有着截然不同的发展文化。
 
-((("Bitcoin","development culture")))In Bitcoin, development is guided by conservative principles: all changes are carefully studied to ensure that none of the existing systems are disrupted. For the most part, changes are only implemented if they are backward compatible. Existing clients are allowed to opt-in, but will continue to operate if they decide not to upgrade.
+((("Bitcoin","development culture")))在比特币中，开发遵循保守原则：仔细研究所有变更，以确保没有任何现有系统中断。 在大多数情况下，只有在向后兼容时才会实施更改。允许现有客户选择加入，但如果他们决定不升级，则会继续运行。
 
-((("backward compatibility, Ethereum vs. Bitcoin")))In Ethereum, by comparison, the community's development culture is focused on the future rather than the past. The (not entirely serious) mantra is "move fast and break things." If a change is needed, it is implemented, even if that means invalidating prior assumptions, breaking compatibility, or forcing clients to update. Ethereum's development culture is characterized by rapid innovation, rapid evolution, and a willingness to deploy forward-looking improvements, even if this is at the expense of some backward compatibility.
+((("backward compatibility, Ethereum vs. Bitcoin")))相比之下，在以太坊，社区的发展文化关注的是未来而非过去。 （并非完全严重）的口头禅是“快速行动并打破局面”。 如果需要进行更改，则会实现更改，即使这意味着使先前的假设无效，破坏兼容性或强制客户端更新。 以太坊的发展文化的特点是快速创新，快速发展，并愿意部署前瞻性改进，即使这是以牺牲一些向后兼容性为代价的。
 
-What this means to you as a developer is that you must remain flexible and be prepared to rebuild your infrastructure as some of the underlying assumptions change. One of the big challenges facing developers in Ethereum is the inherent contradiction between deploying code to an immutable system and a development platform that is still evolving. You can't simply "upgrade" your smart contracts. You must be prepared to deploy new ones, migrate users, apps, and funds, and start over.
+作为开发人员，这意味着你必须保持灵活性并准备好重建你的基础架构，因为一些基本假设会发生变化。 以太坊开发人员面临的一大挑战是将代码部署到不可变系统与仍在不断发展的开发平台之间固有的矛盾。 你不能简单地“升级”你的智能合约。 你必须准备好部署新的，迁移用户，应用程序和资金，然后重新开始。
 
-Ironically, this also means that the goal of building systems with more autonomy and less centralized control is still not fully realized. Autonomy and decentralization require a bit more stability in the platform than you're likely to get in Ethereum in the next few years. In order to "evolve" the platform, you have to be ready to scrap and restart your smart contracts, which means you have to retain a certain degree of control over them.
+具有讽刺意味的是，这也意味着构建具有更多自主权和更少集中控制的系统的目标仍未完全实现。 自治和去中心化要求平台的稳定性要比未来几年在以太坊中获得的稳定性更高。 为了“发展”平台，你必须准备废弃并重新启动智能合约，这意味着你必须对它们保持一定程度的控制。
 
-But, on the positive side, Ethereum is moving forward very fast. There's little opportunity for "bike-shedding," an expression that means holding up development by arguing over minor details such as how to build the bicycle shed at the back of a nuclear power station. If you start bike-shedding, you might suddenly discover that while you were distracted the rest of the development team changed the plan and ditched bicycles in favor of autonomous hovercraft.
+但是，从积极的方面来看，以太坊正在快速前进。 “自行车脱落”的机会很少，这意味着通过争论诸如如何在核电站后面建造自行车棚这样的细节来阻碍开发。 如果你开始骑车，你可能会突然发现，当你分心的时候，开发团队的其他人改变了计划并放弃了自行车而转向自主气垫船。
 
-Eventually, the development of the Ethereum platform will slow down and its interfaces will become fixed. But in the meantime, innovation is the driving principle. You'd better keep up, because no one will slow down for you.
+最终，以太坊平台的开发将变慢，其界面将变得固定。 但与此同时，创新是驱动原则。 你最好跟上，因为没有人会为你慢下来。
 
 [[why_learn]]
-=== Why Learn Ethereum?
+=== 为什么学习以太坊?
 
-((("blockchain","Ethereum as developer&#39;s blockchain")))((("Ethereum (generally)","reasons to learn")))Blockchains have a very steep learning curve, as they combine multiple disciplines into one domain: programming, information security, cryptography, economics, distributed systems, peer-to-peer networks, etc. Ethereum makes this learning curve a lot less steep, so you can get started quickly. But just below the surface of a deceptively simple environment lies a lot more. As you learn and start looking deeper, there's always another layer of complexity and wonder.
+区块链的学习曲线非常陡峭，因为它们将多个学科组合成一个领域：编程，信息安全，密码学，经济学，分布式系统，点对点网络等。以太坊使这一学习曲线不那么陡峭，所以你可以快速入门。 但是，在一个看似简单的环境的表面之下还有更多。 当你学习并开始深入思考时，总会有另一层复杂性和惊奇。
 
-Ethereum is a great platform for learning about blockchains and it's building a massive community of developers, faster than any other blockchain platform. More than any other, Ethereum is a _developer's blockchain_, built by developers for developers. A developer familiar with JavaScript applications can drop into Ethereum and start producing working code very quickly. For the first few years of Ethereum's life, it was common to see T-shirts announcing that you can create a token in just five lines of code. Of course, this is a double-edged sword. It's easy to write code, but it's very hard to write _good_ and _secure_ code.
+以太坊是学习区块链的绝佳平台，它正在建立一个庞大的开发者社区，比任何其他区块链平台都要快。 以太坊是一个开发者的区块链，由开发人员为开发人员构建。 熟悉JavaScript应用程序的开发人员可以进入以太坊并开始非常快速地生成工作代码。 在以太坊的最初几年，通常会看到很多人的T恤衫上写着“你可以用五行代码创建一个token”。 当然，这是一把双刃剑。 编写代码很容易，但编写 _好_ 和 _安全_ 代码非常困难。
 
 [[teaching_objectives]]
-=== What This Book Will Teach You
+=== 这本书将教会你什么
 
-This book dives into Ethereum and examines every component. You will start with a simple transaction, dissect how it works, build a simple contract, make it better, and follow its journey through the Ethereum system.
+这本书潜入以太坊并检查每一个组成部分。 你将从一个简单的交易开始，剖析它的工作原理，建立一个简单的合同，使其更好，并跟随其通过以太坊系统的旅程。
 
-You will learn not only how to use Ethereum&#x2014;how it works&#x2014;but also why it is designed the way it is. You will be able to understand how each of the pieces works, and how they fit together and why.(((range="endofrange", startref="ix_01what-is-asciidoc0")))((("account","contract", see="smart contracts")))((("assymetric cryptography", see="public key cryptography")))((("BIPs", see="Bitcoin improvement proposals")))((("burn", see="ether burn")))((("cryptography","asymmetric", see="public key cryptography")))((("decentralized applications", see="DApps")))((("Decentralized Autonomous Organization", see="DAO")))((("default function", see="fallback function")))((("deterministic (seeded) wallets","hierarchical", see="hierarchical deterministic wallets")))((("DoS attacks", see="denial of service attacks")))((("ECDSA", see="Elliptic Curve Digital Signature Algorithm")))((("ETC", see="Ethereum Classic")))((("Ethereum (generally)","clients", see="clients, Ethereum")))((("Ethereum Improvement Proposals", see="EIP entries")))((("Ethereum Name Service", see="ENS")))((("Ethereum Virtual Machine", see="EVM")))((("Externally Owned Account", see="EOA")))((("fees", see="gas")))((("ICOs", see="Initial Coin Offerings")))((("Mastering Ethereum Token", see="METoken")))((("MEW", see="MyEtherWallet")))((("names/naming", see="ENS (Ethereum Name Service)")))((("NFTs", see="nonfungible tokens")))((("PoS", see="proof of stake")))((("PoW", see="proof of work")))((("PoWHC", see="Proof of Weak Hands Coin")))((("Remote Procedure Call (RPC) commands", see="JSON-RPC API")))((("RPC (Remote Procedure Call) commands", see="JSON-RPC API")))((("Secure Hash Algorithm", see="SHA entries")))((("seeded wallets", see="deterministic wallets")))((("smart contracts","Vyper and", see="Vyper")))((("smartphones", see="mobile (smartphone) wallets")))((("storage", see="data storage")))((("SUICIDE", see="SELFDESTRUCT opcode")))((("synchronization", see="fast synchronization")))((("synchronization", see="first synchronization")))((("transaction fees", see="gas")))((("wallets","HD", see="hierarchical deterministic wallets")))((("wallets","MetaMask", see="MetaMask")))
+这本书深入探讨了以太坊，并检查了每一个组成部分。
+你将从一个简单的交易开始，剖析它是如何工作的，构建一个简单的合约，使它变得更好，并沿着旅程了解以太坊系统。
+
+你不仅将学习如何使用以太坊&#x2014;它如何工作&#x2014;还将学习它为何如此设计。 你将能够理解每个部分的工作原理，以及它们如何组合在一起以及为什么。
