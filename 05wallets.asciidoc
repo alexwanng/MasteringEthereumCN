@@ -1,45 +1,45 @@
 [[wallets_chapter]]
-== Wallets
+== 钱包
 
-((("wallets", id="ix_05wallets-asciidoc0", range="startofrange")))The word "wallet" is used to describe a few different things in Ethereum.
+((("wallets", id="ix_05wallets-asciidoc0", range="startofrange")))在以太坊中，钱包描述了一些不同的东西。
 
-At a high level, a wallet is a software application that serves as the primary user interface to Ethereum. The wallet controls access to a user's money, managing keys and addresses, tracking the balance, and creating and signing transactions. In addition, some Ethereum wallets can also interact with contracts, such as ERC20 tokens.
+钱包在以太坊中处于一个较高的层次——应用层，是以太坊的主要用户界面。钱包控制着用户对钱的访问、管理秘钥和钱包地址、跟踪余额以及创建和签署交易。另外，一些以太坊钱包能够通过合约进行互动（interact ），比如ERC20代币（通过以太坊来发行的一种币）。
 
-((("wallets","defined")))More narrowly, from a programmer's perspective, the word _wallet_ refers to the system used to store and manage a user's keys. Every wallet has a key-management component. For some wallets, that's all there is. Other wallets are part of a much broader category, that of _browsers_, which are interfaces to Ethereum-based decentralized applications, or _DApps_, which we will examine in more detail in <<decentralized_applications_chap>>. There are no clear lines of distinction between the various categories that are conflated under the term wallet.
+((("wallets","defined")))简单来讲，从一个程序员的角度看，钱包就是指用来存储和管理用户秘钥的一个系统。每一个钱包都有一个秘钥管理组件。甚至对于某些钱包来说，这就是它所有的功能。其他的钱包则分成了更广泛的类别，比如说_浏览器_——基于以太坊的去中心化的应用，或者 _DApps_, 我们将会在 <<去中心化的应用>>. 这一章详细介绍。它们都属于钱包，但没有明确的分界线来区分不同的类别。
 
-In this chapter we will look at wallets as containers for private keys, and as systems for managing these keys.
+在本章中，我们将钱包看做存储私钥的容器以及管理秘钥的系统。
 
 [[wallet_tech_overview]]
-=== Wallet Technology Overview
+=== 钱包技术简要
 
-((("wallets","technology overview", id="ix_05wallets-asciidoc1", range="startofrange")))In this section we summarize the various technologies used to construct user-friendly, secure, and flexible Ethereum wallets.
+((("wallets","technology overview", id="ix_05wallets-asciidoc1", range="startofrange")))在这一节，我们总结了用于构建用户友好型、安全且灵活的钱包的一些技术。
 
-One key consideration in designing wallets is balancing convenience and privacy. The most convenient Ethereum wallet is one with a single private key and address that you reuse for everything. Unfortunately, such a solution is a privacy nightmare, as anyone can easily track and correlate all your transactions. Using a new key for every transaction is best for privacy, but becomes very difficult to manage. The correct balance is difficult to achieve, but that's why good wallet design is paramount.
+设计钱包的一个关键因素是平衡方便性和隐私性。最方便的以太坊钱包是一个带有单个私钥和地址的钱包，可以重复使用。不幸的是，这样的设计对于隐私性来说是一个噩梦，因为任何人都能够很容易的跟踪并收集你的所有交易信息。另外一种方法，每一笔交易都使用一个新的秘钥，这是最能保护隐私性的办法，但是管理起来很麻烦。隐私性和方便性是很难平衡的，所以好的钱包设计是非常重要的。
 
-A common misconception about Ethereum is that Ethereum wallets contain ether or tokens. In fact, very strictly speaking, the wallet holds only keys. The ether or other tokens are recorded on the Ethereum blockchain. Users control the tokens on the network by signing transactions with the keys in their wallets. ((("keychains")))In a sense, an Ethereum wallet is a _keychain_. Having said that, given that the keys held by the wallet are the only things that are needed to transfer ether or tokens to others, in practice this distinction is fairly irrelevant. Where the difference does matter is in changing one's mindset from dealing with the centralized system of conventional banking (where only you, and the bank, can see the money in your account, and you only need convince the bank that you want to move funds to make a transaction) to the decentralized system of blockchain platforms (where everyone can see the ether balance of an account, although they probably don't know the account's owner, and everyone needs to be convinced the owner wants to move funds for a transaction to be enacted). In practice this means that there is an independent way to check an account's balance, without needing its wallet. Moreover, you can move your account handling from your current wallet to a different wallet, if you grow to dislike the wallet app you started out using.
+人们对以太坊有一个常见的误解——以太坊钱包包含了以太币和其他代币。事实上，严格来说，一个钱包只是用来存储秘钥的。钱包里的以太币和其他代币记录在区块链上。用户可以通过钱包中的秘钥对交易进行签名，来控制网络中的代币。从某种意义上讲，以太坊钱包就是_钥匙扣_（keychain）。话虽如此，由于与别人进行代币交易唯一需要的就是钱包中的秘钥，所以我们也可以认为以太坊钱包包含了以太币和其他代币。重要的区别在于交易者的心态在不同的交易系统（从中心化的系统交易到去中心化的系统）交易引起的改变，在中心化的银行进行交易，只有交易者和银行能够看到交易者账户的余额，如果交易者想要进行一笔交易，他仅需要说服银行就行；而如果在区块链系统的去中心化平台进行交易，每个人都能看到这个账户的余额，尽管他们并不知道账户的拥有者是谁，并且每个人都需要确信所有者希望转移资金进行交易。实际上，这也意味着我们不需要钱包就能查询账户的余额。另外，如果你不喜欢你正在使用的这个钱包软件，你也可以将代币转移到其他的钱包。
 
-[NOTE]
+[注意]
 ====
-Ethereum wallets contain keys, not ether or tokens. Wallets are like keychains containing pairs of private and public keys. Users sign transactions with the private keys, thereby proving they own the ether. The ether is stored on the blockchain.
+以太坊钱包仅包含秘钥，不包含以太币和其他代币。钱包就像一个钥匙扣一样存储公钥和私钥。用户通过私钥来签署交易，从而证明用户拥有这些以太币。以太币存储在区块链中。
 ====
 
-There are two primary types of wallets, distinguished by whether the keys they contain are related to each other or not.
+现在主要有两种类型的钱包，区别在于它们包含的密钥是否相互关联。
 
-((("nondeterministic (random) wallets", id="ix_05wallets-asciidoc2", range="startofrange")))((("random (nondeterministic) wallets", id="ix_05wallets-asciidoc3", range="startofrange")))((("wallets","nondeterministic", id="ix_05wallets-asciidoc4", range="startofrange")))The first type is a _nondeterministic wallet_, where each key is independently generated from a different random number. The keys are not related to each other. ((("JBOK wallets", seealso="nondeterministic (random) wallets")))This type of wallet is also known as a JBOK wallet, from the phrase "Just a Bunch of Keys.&#x201d;
+((("nondeterministic (random) wallets", id="ix_05wallets-asciidoc2", range="startofrange")))((("random (nondeterministic) wallets", id="ix_05wallets-asciidoc3", range="startofrange")))((("wallets","nondeterministic", id="ix_05wallets-asciidoc4", range="startofrange")))第一种是_不确定性_（nondeterministic ）钱包，其中每个秘钥都是由不同的随机数独立生成的。秘钥之间没有关联。((("JBOK wallets", seealso="nondeterministic (random) wallets")))这种类型的钱包也被称为JBOK钱包，来自短语“Just a Bunch of Keys”（只是一串钥匙）。
 
-((("deterministic (seeded) wallets","defined")))((("wallets","deterministic")))The second type of wallet is a _deterministic wallet_, where all the keys are derived from a single master key, known as the _seed_. All the keys in this type of wallet are related to each other and can be generated again if one has the original seed. ((("key derivation methods")))There are a number of different _key derivation_ methods used in deterministic wallets. The most commonly used derivation method uses a tree-like structure, as described in <<hd_wallets>>.
+((("deterministic (seeded) wallets","defined")))((("wallets","deterministic")))第二种是_确定性_（deterministic）钱包，其中所有的秘钥都来自一个主密钥，称之为_种子_。所有的秘钥之间都是互相关联的，并且如果一个人有主密钥的话，还可以再次生成。((("key derivation methods")))确定性钱包中使用了许多不同的密钥派生方法。最常用的派生方法使用树状结构，如<<hd_wallets>>中所述。
 
-((("mnemonic code words")))((("seeds","mnemonic code words for")))To make deterministic wallets slightly more secure against data-loss accidents, such as having your phone stolen or dropping it in the toilet, the seeds are often encoded as a list of words (in English or another language) for you to write down and use in the event of an accident. These are known as the wallet's _mnemonic code words_. Of course, if someone gets hold of your mnemonic code words, then they can also recreate your wallet and thus gain access to your ether and smart contracts. As such, be very, very careful with your recovery word list! Never store it electronically, in a file, on your computer or phone. Write it down on paper and store it in a safe and secure place.
+((("mnemonic code words")))((("seeds","mnemonic code words for")))为了使确定性钱包更安全，防止数据丢失事故，例如手机被盗或丢弃在厕所中，种子通常被编码为单词列表（英语或其他语言）。我们称这个单词列表为_助记词_。助记词更易于记录并且在发生事故时，我们可以通过助记词来找回钱包。当然，如果有人掌握了你的助记词，那么他们也可以重新创建你的钱包，从而获得你的以太币和智能合约的访问权限。因此，对你的助记词一定要非常非常小心！切勿将其存储在文件、电脑或手机上。将其写在纸上并存放在安全可靠的地方。
 
-The next few sections introduce each of these technologies at a high level.
+接下来的几节将介绍这些高级别的技术。
 
 
 [[random_wallet]]
-==== Nondeterministic (Random) Wallets
+==== 不确定性(随机性)钱包
 
-In the first Ethereum wallet (produced for the Ethereum pre-sale), each wallet file stored a single randomly generated private key. Such wallets are being replaced with deterministic wallets because these "old-style" wallets are in many ways inferior. For example, it is considered good practice to avoid Ethereum address reuse as part of maximizing your privacy while using Ethereum&#x2014;i.e., to use a new address (which needs a new private key) every time you receive funds. You can go further and use a new address for each transaction, although this can get expensive if you deal a lot with tokens. To follow this practice, a nondeterministic wallet will need to regularly increase its list of keys, which means you will need to make regular backups. If you ever lose your data (disk failure, drink accident, phone stolen) before you've managed to back up your wallet, you will lose access to your funds and smart contracts. The "type 0" nondeterministic wallets are the hardest to deal with, because they create a new wallet file for every new address in a "just in time" manner.
+在第一个以太坊钱包中（为以太坊预售生产的），每一个钱包文件存储一个随机生成的私钥。这样的钱包正在被确定性钱包所替代，因为这些“老式”钱包在很多地方是处于劣势的。例如，在使用以太坊时，避免钱包地址的重复使用来达到最大化隐私安全性——每次接受一笔代币都使用一个新的地址（同时会产生一个新的私钥），这被认为是良好的做法。你还可以更进一步，每进行一笔交易就是用一个新的地址，尽管在交易大量代币时，会产生比较昂贵的费用。按照这种做法，一个不确定性钱包里的秘钥会不断增加，这就意味着你需要定期的备份这些秘钥。但是如果在备份之前丢失了这些数据（如磁盘故障、饮酒事故、手机被盗），你就会失去你对资金和智能合约的控制权限。“类型0”不确定性钱包是最难处理的，因为它们用一个“即时”的方式为每个钱包地址创建新的钱包文件。
 
-((("keystore file")))Nevertheless, many Ethereum clients (including +geth+) use a _keystore_ file, which is a JSON-encoded file that contains a single (randomly generated) private key, encrypted by a passphrase for extra security. The JSON file's contents look like this:
+((("keystore file")))尽管如此，许多以太坊客户端(包括geth)使用_密钥库_文件，这是一个json编码的文件，其中包含一个(随机生成的)私钥，为了增加安全性，它使用密码进行加密。 秘钥库文件的内容如下:
 
 [[keystore_example]]
 [source,json]
@@ -69,81 +69,81 @@ In the first Ethereum wallet (produced for the Ethereum pre-sale), each wallet f
 }
 ----
 
-((("key derivation function (KDF)")))((("password stretching algorithm")))The keystore format uses a _key derivation function_ (KDF), also known as a password stretching algorithm, which protects against brute-force, dictionary, and rainbow table attacks. In simple terms, the private key is not encrypted by the passphrase directly. Instead, the passphrase is _stretched_, by repeatedly hashing it. The hashing function is repeated for 262,144 rounds, which can be seen in the keystore JSON as the parameter +crypto.kdfparams.n+. An attacker trying to brute-force the passphrase would have to apply 262,144 rounds of hashing for every attempted passphrase, which slows down the attack sufficiently to make it infeasible for passphrases of sufficient complexity and length.
+((("key derivation function (KDF)")))((("password stretching algorithm")))密钥库使用密钥求导函数(KDF)，也称为密码拉伸算法，这种算法可以抵御暴力破解、字典式攻击和彩虹表攻击。 简单来说，私钥不直接使用密码加密。相反，通过反复执行哈希函数，密码长度变长（stretched）了。哈希函数被重复了262144次，这可以在秘钥库的JSON文件中看到——参数crypto.kdfparams.n的值。 如果攻击者想要暴力破解密码，那么他每尝试一个密码都需要进行262144次的哈希处理，这样就足以减慢攻击速度，使他们无法暴力破解足够复杂并且长度很长的密码。
 
-There are a number of software libraries that can read and write the keystore format, such as the JavaScript library https://github.com/ethereumjs/keythereum[+keythereum+].
+有许多软件库可以读写秘钥库的格式，例如JavaScript库 https://github.com/ethereumjs/keythereum[+keythereum+].
 
 [TIP]
 ====
-The use of nondeterministic wallets is discouraged for anything other than simple tests. They are too cumbersome to back up and use for anything but the most basic of situations. Instead, use an industry-standard&#x2013;based HD wallet with a mnemonic seed for backup.(((range="endofrange", startref="ix_05wallets-asciidoc4")))(((range="endofrange", startref="ix_05wallets-asciidoc3")))(((range="endofrange", startref="ix_05wallets-asciidoc2")))
+除了简单的测试外，我们不鼓励使用不确定性钱包。除了在最基本的情况下，不确定性钱包在各方面都由于它太笨重了而难以备份和使用。相反，使用行业标准的用助记词种子来备份的分层确定性钱包。(((range="endofrange", startref="ix_05wallets-asciidoc4")))(((range="endofrange", startref="ix_05wallets-asciidoc3")))(((range="endofrange", startref="ix_05wallets-asciidoc2")))
 ====
 
 [[deterministic_wallets]]
-==== Deterministic (Seeded) Wallets
+==== 确定性(种子)钱包
 
-((("deterministic (seeded) wallets","about")))((("wallets","deterministic")))Deterministic or "seeded" wallets are wallets that contain private keys that are all derived from a single master key, or seed. The seed is a randomly generated number that is combined with other data, such as an index number or "chain code" (see <<extended_keys>>), to derive any number of private keys. In a deterministic wallet, the seed is sufficient to recover all the derived keys, and therefore a single backup, at creation time, is sufficient to secure all the funds and smart contracts in the wallet. The seed is also sufficient for a wallet export or import, allowing for easy migration of all the keys between different wallet implementations.
+((("deterministic (seeded) wallets","about")))((("wallets","deterministic")))确定性钱包或"种子"钱包包的私钥全部来自一个主密钥或种子。种子 是一个随机生成的数字，它与其他数据(如索引号或"链码"(请参阅 <<extended_keys>>)结合在一起，从而生成任意数量的私钥。在确定性钱包中，种子足以恢复所有派生的密钥，因此在创建时备份一次，就足以保证钱包中所有资金和智能合同的安全。 该种子还可以用于钱包的导出或导入，使所有秘钥在不同的钱包之间方便地迁移。
 
-This design makes the security of the seed of utmost importance, as only the seed is needed to gain access to the entire wallet. On the other hand, being able to focus security efforts on a single piece of data can be seen as an advantage.
+这种设计使得种子的安全性至关重要，因为只需要种子就可以访问整个钱包。 另一方面，能够将安全工作集中在单个数据上可以被视为一种优势。
 
 [[hd_wallets]]
-==== Hierarchical Deterministic Wallets (BIP-32/BIP-44)
+==== 分层确定性钱包(BIP-32 / BIP-44)
 
-((("Bitcoin improvement proposals (BIPs)","Hierarchical Deterministic Wallets (BIP-32/BIP-44)")))((("hierarchical deterministic wallets (BIP-32/BIP-44)")))Deterministic wallets were developed to make it easy to derive many keys from a single seed. Currently, the most advanced form of deterministic wallet is the _hierarchical deterministic_ (HD) wallet defined by Bitcoin's http://bit.ly/2B2vQWs[_BIP-32 standard_]. HD wallets contain keys derived in a tree structure, such that a parent key can derive a sequence of child keys, each of which can derive a sequence of grandchild keys, and so on. This tree structure is illustrated in <<hd_wallets_figure>>.
+((("Bitcoin improvement proposals (BIPs)","Hierarchical Deterministic Wallets (BIP-32/BIP-44)")))((("hierarchical deterministic wallets (BIP-32/BIP-44)"))) 确定性钱包的发展，使它很容易从一个种子得到许多密钥。 目前，最先进的确定性钱包形式是由比特币的 http://bit.ly/2B2vQWs[_BIP-32 standard_] 定义的_分层次确定性_(HD)钱包. 分层次确定性钱包包含了由树状结构派生出来的密钥，父密钥可以派生出一系列子密钥，每个子密钥可以派生出一系列孙子密钥，等等。 这种树状结构在 <<hd_wallets_figure>>中进行了说明。
 
 [[hd_wallets_figure]]
-.HD wallet: a tree of keys generated from a single seed
+.HD 钱包: 一颗种子生成的钥匙树
 image::images/hd_wallet.png["HD wallet"]
 
-HD wallets offer a few key advantages over simpler deterministic wallets. First, the tree structure can be used to express additional organizational meaning, such as when a specific branch of subkeys is used to receive incoming payments and a different branch is used to receive change from outgoing payments. Branches of keys can also be used in corporate settings, allocating different branches to departments, subsidiaries, specific functions, or accounting categories.
+HD 钱包相较于简单的确定性钱包有几个关键的优势. 首先, 树状结构可以看做是一个组织结构, 一个特定的子秘钥所在的分支可以用来收款，再选用另一个分支用来记录付款. 密钥的分支也可以用来规划公司，将不同的分支用来分配给部门、子公司、特定功能或者会计部门。
 
-The second advantage of HD wallets is that users can create a sequence of public keys without having access to the corresponding private keys. This allows HD wallets to be used on an insecure server or in a watch-only or receive-only capacity, where the wallet doesn't have the private keys that can spend the funds.
+HD钱包的第二个优点是，用户可以创建一系列公钥，而无需访问相应的私钥。 这使得HD钱包可以在不安全的服务器上使用，或者在只能接收或只能查看的情况下使用，在这种情况下钱包可以没有用于花费资金的私钥。
 
 [[mnemonic_codes]]
-==== Seeds and Mnemonic Codes (BIP-39)
+==== 种子和助记词(BIP-39)
 
-((("BIP-39 standard")))((("Bitcoin improvement proposals (BIPs)","Mnemonic Code Words (BIP-39)")))((("mnemonic code words","BIP-39")))((("seeds","mnemonic code words for", seealso="mnemonic code words")))((("wallets","mnemonic codes (BIP-39)")))There are many ways to encode a private key for secure backup and retrieval. The currently preferred method is using a sequence of words that, when taken together in the correct order, can uniquely recreate the private key. This is sometimes known as a _mnemonic_, and the approach has been standardized by http://bit.ly/2OEMjUz[BIP-39]. Today, many Ethereum wallets (as well as wallets for other cryptocurrencies) use this standard, and can import and export seeds for backup and recovery using interoperable mnemonics.
+((("BIP-39 standard")))((("Bitcoin improvement proposals (BIPs)","Mnemonic Code Words (BIP-39)")))((("mnemonic code words","BIP-39")))((("seeds","mnemonic code words for", seealso="mnemonic code words")))((("wallets","mnemonic codes (BIP-39)")))为了安全备份和恢复钱包，有许多方法可以对私钥进行编码。当前首选的方法是使用一系列单词, 当这些单词以正确的顺序组合在一起时既可以重建私钥. 这些单词被称为_助记词_, 这个方法也被标准化为 http://bit.ly/2OEMjUz[BIP-39]. 今天，许多以太坊钱包(以及其他加密货币钱包)都使用这一标准，并且可以通过操作助记词来导入或导出用于备份和恢复的种子。
 
-To see why this approach has become popular, let's have a look at an example:
+为了解释为什么这种方法会流行起来，让我们来看一个例子:
 
 [[hex_seed_example]]
-.A seed for a deterministic wallet, in hex
+.用十六进制来表示一个确定性钱包的种子
 ----
 FCCF1AB3329FD5DA3DA9577511F8F137
 ----
 
 [[mnemonic_seed_example]]
-.A seed for a deterministic wallet, from a 12-word mnemonic
+.用12个助记词来表示一个确定性钱包的种子
 ----
 wolf juice proud gown wool unfair
 wall cliff insect more detail hub
 ----
 
-In practical terms, the chance of an error when writing down the hex sequence is unacceptably high. In contrast, the list of known words is quite easy to deal with, mainly because there is a high level of redundancy in the writing of words (especially English words). If "inzect" had been recorded by accident, it could quickly be determined, upon the need for wallet recovery, that "inzect" is not a valid English word and that "insect" should be used instead. We are talking about writing down a representation of the seed because that is good practice when managing HD wallets: the seed is needed to recover a wallet in the case of data loss (whether through accident or theft), so keeping a backup is very prudent. However, the seed must be kept extremely private, so digital backups should be carefully avoided; hence the earlier advice to back up with pen and paper.
+实际上，在记录这个16进制的序列时出错的概率很大. 相反, 用已知的单词来记录就很简单, 主要在于单词（特别是英文单词）在记录过程中存在高度的冗余(redundancy).如果不小心将一个单词记录为 "inzect" , 在恢复钱包时就很容易发现这个错误，因为"inzect"不是一个正确的英文单词，也很容易能够看出正确单词为"insect"。我们在讨论种子的备份，因为这个管理HD钱包的良好行为： 种子需要在数据丢失(无论是通过事故还是盗窃)的情况下恢复钱包，所以保持备份是非常谨慎的。然而，种子必须保持非常隐私的状态，所以应该避免使用电子备份; 因此，早期的建议是用笔和纸进行备份。
 
-In summary, the use of a recovery word list to encode the seed for an HD wallet makes for the easiest way to safely export, transcribe, record on paper, read without error, and import a private key set into another wallet.(((range="endofrange", startref="ix_05wallets-asciidoc1")))
+总之，对于一个HD钱包来说，使用对种子编码得到的用于恢复钱包的助记词，能够安全地导出、抄写、在纸上记录、浏览并且导入私钥到另一个钱包中。(((range="endofrange", startref="ix_05wallets-asciidoc1")))
 
 
 [[wallet_best_practices]]
-=== Wallet Best Practices
+=== 钱包最佳实践
 
-((("wallets","best practices for", id="ix_05wallets-asciidoc5", range="startofrange")))As cryptocurrency wallet technology has matured, certain common industry standards have emerged that make wallets broadly interoperable, easy to use, secure, and flexible. These standards also allow wallets to derive keys for multiple different cryptocurrencies, all from a single mnemonic. These common standards are:
+((("wallets","best practices for", id="ix_05wallets-asciidoc5", range="startofrange")))随着加密货币钱包技术的成熟，某些通用的行业标准已经出现，使钱包具有广泛的互动性、易用性、安全性和灵活性。 这些标准还允许钱包从一个助记词中获得多种不同加密货币的密钥。 这些共同标准是:
 
-* Mnemonic code words, based on BIP-39
-* HD wallets, based on BIP-32
-* Multipurpose HD wallet structure, based on BIP-43
-* Multicurrency and multiaccount wallets, based on BIP-44
+* 基于 BIP-39的助记词
+* HD 钱包，基于 BIP-32
+* 基于 BIP-43的多用途 HD 钱包
+* 基于 BIP-44的多币种和多帐户钱包
 
-These standards may change or be obsoleted by future developments, but for now they form a set of interlocking technologies that have become the _de facto_ wallet standard for most blockchain platforms and their cryptocurrencies.
+这些标准可能会随着未来的发展而改变或者被淘汰，但是现在它们形成了一套连锁技术，成为大多数区块链平台及其加密货币事实上的钱包标准。
 
-The standards have been adopted by a broad range of software and hardware wallets, making all these wallets interoperable. A user can export a mnemonic generated in one of these wallets and import it to another wallet, recovering all keys and addresses.
+这些标准已经被广泛的软件和硬件钱包所采用，使得所有这些钱包具有互动性。 用户可以导出这些钱包中产生的助记词，并将其导入另一个钱包，恢复所有秘钥和地址。
 
-Some examples of software wallets supporting these standards include (listed alphabetically) Jaxx, MetaMask, MyCrypto, and MyEtherWallet (MEW). ((("hardware wallets")))Examples of hardware wallets supporting these standards include Keepkey, Ledger, and Trezor.
+支持这些标准的一些软件钱包示例包括(按字母顺序列出) Jaxx、 MetaMask、 MyCrypto 和 MyEtherWallet (MEW)。 支持这些标准的硬件钱包包括 Keepkey、 Ledger 和 Trezor。
 
-The following sections examine each of these technologies in detail.
+下面的部分将详细研究这些技术。
 
 [TIP]
 ====
-If you are implementing an Ethereum wallet, it should be built as an HD wallet, with a seed encoded as a mnemonic code for backup, following the BIP-32, BIP-39, BIP-43, and BIP-44 standards, as described in the following sections.
+如果你正在实现一个以太坊钱包，那么应该将其作为一个 HD 钱包进行构建，使用一个编码为助记词的种子进行备份，并遵循接下来所讲的这些标准： BIP-32、 BIP-39、 BIP-43和 BIP-44。
 ====
 
 [[bip39]]
