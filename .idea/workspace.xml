@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee0bb51b-68dd-4177-836b-fa2e64fa2846" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/05wallets.asciidoc" beforeDir="false" afterPath="$PROJECT_DIR$/05wallets.asciidoc" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +16,8 @@
         <entry file="file://$PROJECT_DIR$/05wallets.asciidoc">
           <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="505">
-                <caret line="421" column="83" selection-start-line="421" selection-start-column="83" selection-end-line="421" selection-end-column="83" />
+              <first_editor relative-caret-position="221">
+                <caret line="407" column="143" selection-start-line="407" selection-start-column="143" selection-end-line="407" selection-end-column="143" />
               </first_editor>
               <second_editor />
             </state>
@@ -26,6 +25,15 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>interact</find>
+      <find>&amp;#x27;</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>'</replace>
+    </replaceStrings>
   </component>
   <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
@@ -114,17 +122,17 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/05wallets.asciidoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="221">
+            <caret line="407" column="143" selection-start-line="407" selection-start-column="143" selection-end-line="407" selection-end-column="143" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="505">
-            <caret line="421" column="83" selection-start-line="421" selection-start-column="83" selection-end-line="421" selection-end-column="83" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
