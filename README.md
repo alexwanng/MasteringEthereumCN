@@ -12,10 +12,10 @@
 | [preface.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/preface.asciidoc) |          |      |
 | [glossary.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/glossary.asciidoc) | 红军大叔 |      |
 | [01what-is.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/01what-is.asciidoc) | 红军大叔 | 完成   |
-| [02intro.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/02intro.asciidoc) | 红军大叔 |      |
+| [02intro.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/02intro.asciidoc) | 红军大叔 | 完成   |
 | [03clients.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/03clients.asciidoc) | 红军大叔 |      |
 | [04keys-addresses.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/04keys-addresses.asciidoc) | 红军大叔 |      |
-| [05wallets.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/05wallets.asciidoc) |          |      |
+| [05wallets.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/05wallets.asciidoc) | stong1994   |  完成  |
 | [06transactions.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/06transactions.asciidoc) |          |      |
 | [07smart-contracts-solidity.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/07smart-contracts-solidity.asciidoc) |          |      |
 | [08smart-contracts-vyper.asciidoc](https://github.com/alexwanng/MasteringEthereumCN/blob/develop/08smart-contracts-vyper.asciidoc) |          |      |
